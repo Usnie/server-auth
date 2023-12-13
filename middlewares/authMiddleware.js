@@ -1,4 +1,3 @@
-import jwt from "jsonwebtoken"
 import tokenService from "../services/tokenService.js"
 
 function authMiddleware(req,res,next){

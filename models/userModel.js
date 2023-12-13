@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-
 const UserSchema = new Schema({
     username:{
         type: String,
@@ -16,6 +15,5 @@ const UserSchema = new Schema({
         required: true
     }
 })
-
 const User = model('User', UserSchema);
 export default User;

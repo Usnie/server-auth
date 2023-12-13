@@ -18,7 +18,7 @@ class AuthControllers {
         // await Token.create({user:userD.id,refreshToken:tokens.refreshToken})
         await tokenService.saveToken({userId:userD.id,refreshToken:tokens.refreshToken})
         res.cookie('refreshToken',tokens.refreshToken,{maxAge:30*24*60*60*1000,httpOnly:true})
-        res.json({accesToken:tokens.accessToken,userD})
+        res.status(201).json({accesToken:tokens.accessToken,userD})
         }
         catch(e){
             console.log(e.message)
@@ -62,7 +62,7 @@ class AuthControllers {
         }
       }
 
-      async refresh(req, res, next) {
+    async refresh(req, res, next) {
         try {
             const {refreshToken} = req.cookies;
             if(!refreshToken){
